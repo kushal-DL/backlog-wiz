@@ -1,0 +1,54 @@
+{
+  "stories": [
+    {
+      "id": "S-001",
+      "title": "Set per-channel notification delivery preferences",
+      "description": "As a user, I want to choose a delivery channel independently for each notification category, so that I receive notifications only through my preferred channels.",
+      "acceptance_criteria": [
+        "User can select per-channel delivery preference (push, email, in-app, none) for each notification category (comments, mentions, system alerts, weekly digest).",
+        "Saved preferences are stored per user and take effect within 5 seconds of being saved."
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Users must be able to choose a delivery channel (push, email, in-app, or none) independently for each notification category: comments, mentions, system alerts, and weekly digest."
+    },
+    {
+      "id": "S-002",
+      "title": "Configure do-not-disturb schedule",
+      "description": "As a user, I want to define a recurring do-not-disturb window (e.g., 22:00\u201307:00 daily), so that all push and email notifications are suppressed and delivered as a single digest at the end of the window.",
+      "acceptance_criteria": [
+        "User can set a recurring do-not-disturb window with custom start and end times.",
+        "During the DND window, push and email notifications are suppressed and queued for single-digest delivery after the window ends."
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Users must be able to define a recurring do-not-disturb window (e.g., 22:00\u201307:00 daily). During this window all push and email notifications are suppressed and queued. Queued notifications are delivered as a single digest at the end of the window, not individually."
+    },
+    {
+      "id": "S-003",
+      "title": "Display real-time unread badge count",
+      "description": "As a user, I want the app icon badge and in-app bell icon to display an accurate unread count that decrements in real time as I read notifications, so that I have real-time visibility into new alerts.",
+      "acceptance_criteria": [
+        "App icon badge and in-app bell icon display a count that updates in real time as individual notifications are read.",
+        "'Mark all as read' action clears the unread count immediately across all devices the user is signed in to."
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "The app icon badge and the in-app bell icon must display an accurate unread count. The count must decrement in real time as individual notifications are read. A 'mark all as read' action must clear the count immediately across all devices the user is signed in to."
+    },
+    {
+      "id": "S-004",
+      "title": "Send admin broadcast notifications",
+      "description": "As an administrator, I want to send a broadcast notification to all users or to a named user segment, so that important information is delivered within 2 minutes to all recipients.",
+      "acceptance_criteria": [
+        "Administrator can send a broadcast notification to all users or to a specified user segment.",
+        "Broadcast message is delivered within 2 minutes of dispatch and clearly labelled as originating from the platform, not from another user."
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Administrators must be able to send a broadcast notification to all users or to a named user segment. Broadcast messages must be delivered within 2 minutes of dispatch. Users cannot opt out of admin broadcasts, but the broadcast must be clearly labelled as coming from the platform, not from another user."
+    }
+  ],
+  "summary": "The Notification Centre v2 requires per-channel delivery preferences and do-not-disturb scheduling to give users control over alert reception. It also mandates real-time unread badge counts with cross-device mark-all-as-read functionality, and admin broadcast notifications with rapid 2-minute delivery and clear platform labelling. All four requirements target reduced opt-out rates and efficient administrator communication.",
+  "warnings": []
+}

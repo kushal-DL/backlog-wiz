@@ -1,0 +1,41 @@
+[
+  {
+    "id": "S-001",
+    "title": "User sign-up with email and password",
+    "description": "As a new user, I want to create an account with email and password, so that I can access the application.",
+    "acceptance_criteria": [
+      "Sign-up form validates email format and password strength.",
+      "Verification email is sent within 30 seconds of submission.",
+      "Duplicate email addresses are rejected with a clear error message."
+    ],
+    "priority": "Must",
+    "category": "feature",
+    "source_reference": "MVP onboarding requirements"
+  },
+  {
+    "id": "S-002",
+    "title": "User login with email and password",
+    "description": "As a registered user, I want to log in with my email and password, so that I can access my account.",
+    "acceptance_criteria": [
+      "Successful login redirects to the home feed within 2 seconds.",
+      "Failed login shows a generic error (no hint about which field is wrong).",
+      "Account is locked after 5 consecutive failed attempts."
+    ],
+    "priority": "Must",
+    "category": "feature",
+    "source_reference": "MVP onboarding requirements"
+  },
+  {
+    "id": "S-003",
+    "title": "Password reset via email",
+    "description": "As a user who has forgotten their password, I want to reset it via email, so that I can regain access to my account.",
+    "acceptance_criteria": [
+      "Reset link expires after 1 hour.",
+      "Reset link is single-use.",
+      "User is redirected to login after a successful password change."
+    ],
+    "priority": "Must",
+    "category": "feature",
+    "source_reference": "MVP onboarding requirements"
+  }
+]

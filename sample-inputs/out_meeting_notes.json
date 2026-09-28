@@ -1,0 +1,114 @@
+{
+  "stories": [
+    {
+      "id": "S-001",
+      "title": "Resend verification email button",
+      "description": "As a new user, I want a resend verification email button that appears after 60 seconds of waiting, so that I can re-trigger email verification if needed.",
+      "acceptance_criteria": [
+        "Button appears after 60 seconds on email verification step",
+        "Clicking the button sends a new verification email immediately"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Add a 'resend verification email' button that appears after 60 seconds of waiting."
+    },
+    {
+      "id": "S-002",
+      "title": "Google OAuth sign-up alternative",
+      "description": "As a user, I want to sign up with Google OAuth as an alternative to email/password, so that I can register quickly using my existing Google account.",
+      "acceptance_criteria": [
+        "Google OAuth button present on sign-up screen",
+        "Successful OAuth login creates user account and logs in"
+      ],
+      "priority": "Won't",
+      "category": "feature",
+      "source_reference": "Allow users to sign up with Google OAuth as an alternative to email/password."
+    },
+    {
+      "id": "S-003",
+      "title": "Progress indicator during onboarding",
+      "description": "As a new user, I want to see a progress indicator (step 1 of 3) so that I know how long onboarding takes.",
+      "acceptance_criteria": [
+        "Progress indicator displays 'Step 1 of 3' at start of onboarding",
+        "Indicator updates as user progresses through onboarding steps"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Show a progress indicator (step 1 of 3) so users know how long onboarding takes."
+    },
+    {
+      "id": "S-004",
+      "title": "Turn off specific notification categories",
+      "description": "As a user, I want to turn off specific notification categories (comments, mentions, reminders), so that I can reduce notification overload.",
+      "acceptance_criteria": [
+        "User can disable 'comments' notifications in settings",
+        "User can disable 'mentions' and 'reminders' notifications"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Users must be able to turn off specific notification categories (comments, mentions, reminders)."
+    },
+    {
+      "id": "S-005",
+      "title": "Sync notification preferences across devices",
+      "description": "As a user with multiple devices, I want my notification preferences to sync across devices within 30 seconds, so that I have a consistent experience.",
+      "acceptance_criteria": [
+        "Preference change on one device reflects on another within 30 seconds",
+        "Sync status indicated to user"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Preferences should sync across devices within 30 seconds."
+    },
+    {
+      "id": "S-006",
+      "title": "Pause all notifications for set duration",
+      "description": "As an enterprise user, I want a 'pause all notifications' option for a set duration (1h, 8h, 24h), so that I can temporarily silence notifications.",
+      "acceptance_criteria": [
+        "User can select pause duration (1h, 8h, 24h)",
+        "Notifications automatically resume after selected duration"
+      ],
+      "priority": "Should",
+      "category": "feature",
+      "source_reference": "A 'pause all notifications' option for a set duration (1h, 8h, 24h) was requested by three enterprise customers."
+    },
+    {
+      "id": "S-007",
+      "title": "Implement feed pagination",
+      "description": "As a user browsing the activity feed, I want the feed to load 20 items initially and fetch more on scroll, so that initial load is faster.",
+      "acceptance_criteria": [
+        "Feed loads first 20 items immediately",
+        "Scrolling triggers fetch of next 20 items"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Implement pagination (load 20 items, fetch more on scroll) instead of loading everything."
+    },
+    {
+      "id": "S-008",
+      "title": "Cache last-seen feed state locally",
+      "description": "As a user opening the activity feed, I want the last-seen feed state cached locally so that the UI renders immediately on open, so that I don't wait for server data.",
+      "acceptance_criteria": [
+        "Last-seen state stored locally on device",
+        "UI renders immediately using cached state on subsequent opens"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Cache the last-seen feed state locally so the UI renders immediately on open."
+    },
+    {
+      "id": "S-009",
+      "title": "Lazy load avatar images in feed",
+      "description": "As a user browsing the activity feed, I want avatar images to load only when they scroll into view, so that initial feed load is faster.",
+      "acceptance_criteria": [
+        "Avatar images load only when scrolled into view",
+        "Placeholder shown until avatar loads"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Defer loading of avatar images until they scroll into view (lazy loading)."
+    }
+  ],
+  "summary": "Key requirements include redesigning user onboarding with a resend verification button, progress indicator, and deferred OAuth sign-up; enhancing notification settings with per-category controls, cross-device sync, and a pause duration feature; and optimizing activity feed performance via pagination, local caching, and lazy avatar loading to achieve under-1.5-second load times.",
+  "warnings": []
+}

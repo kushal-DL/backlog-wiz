@@ -1,0 +1,29 @@
+API Gateway — Public REST API v1
+Product requirements gathered from architect review, 8 October 2024
+
+1. Rate limiting
+All public endpoints must enforce per-API-key rate limits. Default: 100 requests/minute.
+Clients that exceed the limit must receive HTTP 429 with a Retry-After header indicating
+when they may retry. Limits must be configurable per key via an admin endpoint without
+requiring a service restart.
+
+2. Authentication
+Every request must include an API key in the Authorization header (Bearer scheme).
+Keys must be revocable instantly — revocation must take effect within 5 seconds across
+all gateway instances. The admin console must support key rotation (issue new key, grace
+period of 24 hours on the old key, then automatic expiry).
+
+3. Request/response logging
+All inbound requests must be logged: timestamp, key ID (not the raw key), endpoint,
+HTTP method, response status, latency in milliseconds. Logs must be retained for 90 days.
+Sensitive fields (request body, auth header) must be redacted before logging.
+
+4. Health and observability
+A /health endpoint must return HTTP 200 with a JSON body indicating service status and
+current version. The endpoint must be exempt from authentication and rate limiting.
+P99 latency for the /health check must be under 50 ms.
+
+5. Error responses
+All 4xx and 5xx responses must follow a consistent JSON envelope:
+{ "error": { "code": "RATE_LIMIT_EXCEEDED", "message": "...", "request_id": "uuid" } }
+The request_id must be logged server-side and returned to the client for support tracing.

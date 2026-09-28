@@ -1,0 +1,46 @@
+Sprint Planning — Mobile App v2.1
+Date: 14 October 2024
+Attendees: Priya (PO), Sam (Tech Lead), Dev team
+
+---
+
+Agenda item 1: User onboarding flow
+
+The current sign-up flow has a 34% drop-off at the email verification step. We need to
+redesign it. Key requirements discussed:
+- Add a "resend verification email" button that appears after 60 seconds of waiting.
+- Allow users to sign up with Google OAuth as an alternative to email/password.
+- Show a progress indicator (step 1 of 3) so users know how long onboarding takes.
+
+Sam flagged: OAuth integration will need a separate spike to assess the provider SDK.
+Priya: prioritise the resend button and progress indicator for this sprint; OAuth is next.
+
+---
+
+Agenda item 2: Notification preferences
+
+Several support tickets this week about users receiving too many push notifications.
+Agreement in the meeting:
+- Users must be able to turn off specific notification categories (comments, mentions, reminders).
+- Preferences should sync across devices within 30 seconds.
+- A "pause all notifications" option for a set duration (1h, 8h, 24h) was requested by
+  three enterprise customers.
+
+Action: Sam to confirm backend event architecture can support per-category filtering.
+
+---
+
+Agenda item 3: Performance — feed load time
+
+The activity feed takes 4–6 seconds to load on first open. Target is under 1.5 seconds.
+Options discussed:
+- Implement pagination (load 20 items, fetch more on scroll) instead of loading everything.
+- Cache the last-seen feed state locally so the UI renders immediately on open.
+- Defer loading of avatar images until they scroll into view (lazy loading).
+
+All three were agreed for this sprint. Lazy loading is lowest effort and highest impact.
+
+---
+
+Any other business: nothing raised.
+Next planning: 28 October 2024.

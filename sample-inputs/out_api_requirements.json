@@ -1,0 +1,66 @@
+{
+  "stories": [
+    {
+      "id": "S-001",
+      "title": "Enforce per-API-key rate limits",
+      "description": "As a API client, I want per-API-key rate limits enforced, so that my application handles throttling gracefully.",
+      "acceptance_criteria": [
+        "Public endpoints return HTTP 429 with Retry-After header when rate limit exceeded",
+        "Rate limits are configurable per API key via admin endpoint without service restart"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "All public endpoints must enforce per-API-key rate limits"
+    },
+    {
+      "id": "S-002",
+      "title": "Revoke API keys instantly",
+      "description": "As an API administrator, I want instant key revocation, so that compromised keys are neutralized across all gateway instances.",
+      "acceptance_criteria": [
+        "Key revocation takes effect within 5 seconds across all gateway instances",
+        "Admin console supports key rotation with 24-hour grace period on old key"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "Keys must be revocable instantly \u2014 revocation must take effect within 5 seconds across all gateway instances"
+    },
+    {
+      "id": "S-003",
+      "title": "Log all inbound requests with redaction",
+      "description": "As a security analyst, I want all inbound requests logged with sensitive fields redacted, so that I can audit without exposing secrets.",
+      "acceptance_criteria": [
+        "Logs include timestamp, key ID, endpoint, HTTP method, response status, and latency in milliseconds",
+        "Sensitive fields (request body, auth header) are redacted before logging"
+      ],
+      "priority": "Must",
+      "category": "feature",
+      "source_reference": "All inbound requests must be logged: timestamp, key ID (not the raw key), endpoint, HTTP method, response status, latency in milliseconds"
+    },
+    {
+      "id": "S-004",
+      "title": "Provide /health endpoint for service status",
+      "description": "As a DevOps engineer, I want a /health endpoint reporting service status and version, so that I can monitor system health.",
+      "acceptance_criteria": [
+        "Endpoint returns HTTP 200 with JSON body indicating service status and current version",
+        "Endpoint is exempt from authentication and rate limiting"
+      ],
+      "priority": "Must",
+      "category": "infrastructure",
+      "source_reference": "A /health endpoint must return HTTP 200 with a JSON body indicating service status and current version"
+    },
+    {
+      "id": "S-005",
+      "title": "Return consistent error JSON envelope",
+      "description": "As a developer debugging an error, I want consistent error responses with request_id, so that I can trace issues server-side.",
+      "acceptance_criteria": [
+        "All 4xx and 5xx responses follow JSON envelope with error code, message, and request_id",
+        "request_id is logged server-side and returned to client for support tracing"
+      ],
+      "priority": "Must",
+      "category": "testing",
+      "source_reference": "All 4xx and 5xx responses must follow a consistent JSON envelope"
+    }
+  ],
+  "summary": "The API Gateway specification outlines public REST API v1 requirements gathered from the architect review on 8 October 2024. Key areas include rate limiting, authentication, request logging, health monitoring, and consistent error handling. The focus is on security, observability, and developer experience.",
+  "warnings": []
+}
